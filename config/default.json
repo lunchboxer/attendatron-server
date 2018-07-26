@@ -1,0 +1,33 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 100,
+    "max": 200
+  },
+  "postgres":
+    "postgres://attendatracker:attendapass@localhost:5432/attendatron",
+  "authentication": {
+    "secret":
+      "0f448d0518468e88467cff68833b4ecf933e35cb049289465d2f1862d7018f2a086922dfc0313890af8284d9fe3601c78424a70a53c728f89fe25f45787b4961d4e0e076ea9cac9fbca3af76fa683ef4db7fe78c2246943979fe652c1f67c14e8a8a5ee54fdf9bfae9cd9c889c0b54ade39018935cc0b0f74e6964fc7faf801d412eb9508b46cd2ad6142b9ad43ea0dd7d9179162e51d487a4e477dc450d2e2064a1b0e76773b3d129a9266bdc8084fa8294a2a71ed0e17d3b10535ce6c5c2f3b3eca8169cb3459e26ac94fca7e3290ca71613dabd4e5b5889e68e8da7097e7de308e30d635e4a065abb502f8c59bda295d620c5f04e13564aaade0249616c9f",
+    "strategies": ["jwt", "local"],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "username",
+      "passwordField": "password"
+    }
+  }
+}
